@@ -15,7 +15,6 @@
 // ⭐ = létt   ⭐⭐ = miðlungs   ⭐⭐⭐ = erfitt
 // =====================================================
 
-
 // =====================================================
 // GÖGN — ekki breyta þessu, notaðu það í æfingunum
 // =====================================================
@@ -25,14 +24,70 @@ const tolur = [4, 8, 15, 16, 23, 42];
 const nofn = ["Anna", "Bjarki", "Sigga", "Jón", "Kinga", "Óli"];
 
 const kvikmyndir = [
-  { id: 1, titill: "Hrútar", ar: 2015, lengd: 93, einkunn: 7.1, flokkur: "drama" },
-  { id: 2, titill: "Djúpið", ar: 2012, lengd: 95, einkunn: 6.8, flokkur: "drama" },
-  { id: 3, titill: "Englar alheimsins", ar: 2000, lengd: 100, einkunn: 7.5, flokkur: "drama" },
-  { id: 4, titill: "Með allt á hreinu", ar: 1982, lengd: 98, einkunn: 7.9, flokkur: "gaman" },
-  { id: 5, titill: "Nói albínói", ar: 2003, lengd: 93, einkunn: 7.3, flokkur: "drama" },
-  { id: 6, titill: "Stella í orlofi", ar: 1986, lengd: 85, einkunn: 7.4, flokkur: "gaman" },
-  { id: 7, titill: "Kona fer í stríð", ar: 2018, lengd: 101, einkunn: 7.4, flokkur: "gaman" },
-  { id: 8, titill: "Lamb", ar: 2021, lengd: 106, einkunn: 6.2, flokkur: "hrollur" },
+  {
+    id: 1,
+    titill: "Hrútar",
+    ar: 2015,
+    lengd: 93,
+    einkunn: 7.1,
+    flokkur: "drama",
+  },
+  {
+    id: 2,
+    titill: "Djúpið",
+    ar: 2012,
+    lengd: 95,
+    einkunn: 6.8,
+    flokkur: "drama",
+  },
+  {
+    id: 3,
+    titill: "Englar alheimsins",
+    ar: 2000,
+    lengd: 100,
+    einkunn: 7.5,
+    flokkur: "drama",
+  },
+  {
+    id: 4,
+    titill: "Með allt á hreinu",
+    ar: 1982,
+    lengd: 98,
+    einkunn: 7.9,
+    flokkur: "gaman",
+  },
+  {
+    id: 5,
+    titill: "Nói albínói",
+    ar: 2003,
+    lengd: 93,
+    einkunn: 7.3,
+    flokkur: "drama",
+  },
+  {
+    id: 6,
+    titill: "Stella í orlofi",
+    ar: 1986,
+    lengd: 85,
+    einkunn: 7.4,
+    flokkur: "gaman",
+  },
+  {
+    id: 7,
+    titill: "Kona fer í stríð",
+    ar: 2018,
+    lengd: 101,
+    einkunn: 7.4,
+    flokkur: "gaman",
+  },
+  {
+    id: 8,
+    titill: "Lamb",
+    ar: 2021,
+    lengd: 106,
+    einkunn: 6.2,
+    flokkur: "hrollur",
+  },
 ];
 
 const karfa = [
@@ -43,32 +98,42 @@ const karfa = [
   { vara: "Kaffi", verd: 1290, magn: 1 },
 ];
 
-
 // =====================================================
 // HLUTI 1 — Upphitun: arrays og for...of
 // =====================================================
 
 // 1.1 ⭐ Prentaðu fyrsta og síðasta nafnið í `nofn`.
 // Á að gefa: Anna  Óli
-
+console.log(nofn[0], nofn[nofn.length - 1]);
 
 // 1.2 ⭐ Prentaðu hversu mörg nöfn eru í `nofn` (.length).
 // Á að gefa: 6
-
+console.log(nofn.length);
 
 // 1.3 ⭐ Notaðu for...of til að prenta hvert nafn í `nofn` í sér línu.
-
+for (nafn of nofn) {
+  console.log(nafn);
+}
 
 // 1.4 ⭐ Notaðu for...of til að leggja saman allar tölurnar í `tolur`.
 // Á að gefa: 108
-
+let summa = 0;
+for (tala of tolur) {
+  summa += tala;
+}
+console.log(summa);
 
 // 1.5 ⭐ Bættu nafninu þínu aftast í `nofn` með push og prentaðu listann.
-
+nofn.push("Unnar");
+for (nafn of nofn) {
+  console.log(nafn);
+}
 
 // 1.6 ⭐⭐ Notaðu includes til að athuga hvort "Kinga" sé í `nofn`. Svo "Gunnar".
 // Á að gefa: true  false
-
+const hefurKinga = nofn.includes("Kinga");
+const hefurGunnar = nofn.includes("Gunnar");
+console.log(hefurKinga, hefurGunnar);
 
 // =====================================================
 // HLUTI 2 — Objects
@@ -76,22 +141,31 @@ const karfa = [
 
 // 2.1 ⭐ Prentaðu titilinn á fyrstu kvikmyndinni (kvikmyndir[0]).
 // Á að gefa: Hrútar
-
+console.log(kvikmyndir[0].titill);
 
 // 2.2 ⭐ Prentaðu árið á síðustu kvikmyndinni. Notaðu .length - 1.
 // Á að gefa: 2021
-
+console.log(kvikmyndir[kvikmyndir.length - 1].ar);
 
 // 2.3 ⭐ Búðu til þitt eigið object `eg` með keys: nafn, aldur og uppahaldsMynd.
 // Prentaðu svo: "Ég heiti ___ og er ___ ára."
-
+const eg = {
+  nafn: "Unnar",
+  aldur: 41,
+  uppahaldsMynd: "Lord of the Rings",
+};
+console.log(`Ég heiti ${eg.nafn} og er ${eg.aldur} ára`);
 
 // 2.4 ⭐⭐ Prentaðu titilinn á öllum kvikmyndunum með for...of.
-
+for (kvikmynd of kvikmyndir) {
+  console.log(kvikmynd.titill);
+}
 
 // 2.5 ⭐⭐ Prentaðu hverja kvikmynd svona: "Hrútar (2015) — 93 mín"
 // Hint: template literal  `${m.titill} (${m.ar})`
-
+for (kvikmynd of kvikmyndir) {
+  console.log(`${kvikmynd.titill} (${kvikmynd.ar}) - ${kvikmynd.lengd} mín`);
+}
 
 // =====================================================
 // HLUTI 3 — forEach og map
@@ -100,30 +174,38 @@ const karfa = [
 
 // 3.1 ⭐ Notaðu forEach til að prenta hvert nafn í `nofn` með "Halló " fyrir framan.
 // Á að gefa: Halló Anna, Halló Bjarki ...
-
+nofn.forEach((nafn) => console.log("Halló " + nafn));
 
 // 3.2 ⭐ Notaðu map til að tvöfalda allar tölurnar í `tolur`.
 // Á að gefa: [8, 16, 30, 32, 46, 84]
-
+const tvofalt = tolur.map((tala) => tala * 2);
+console.log("[" + tvofalt.join(", ") + "]");
 
 // 3.3 ⭐ Notaðu map til að búa til array af nöfnum í hástöfum (toUpperCase).
 // Á að gefa: ["ANNA", "BJARKI", ...]
-
+const hropad = nofn.map((nafn) => nafn.toUpperCase());
+console.log("[" + hropad.join(", ") + "]");
 
 // 3.4 ⭐ Notaðu map til að búa til array af titlum allra kvikmyndanna.
 // Á að gefa: ["Hrútar", "Djúpið", ...]
-
+const kvikmyndanofn = kvikmyndir.map((kvikmynd) => kvikmynd.titill);
+console.log("[" + kvikmyndanofn.join(", ") + "]");
 
 // 3.5 ⭐⭐ Notaðu map til að búa til array af strings: "Hrútar (2015)"
-
+const kvikmyndAr = kvikmyndir.map(
+  (kvikmynd) => kvikmynd.titill + " (" + kvikmynd.ar + ")",
+);
+console.log("[" + kvikmyndAr.join(", ") + "]");
 
 // 3.6 ⭐⭐ Notaðu map á `karfa` til að fá heildarverð hverrar línu (verd * magn).
 // Á að gefa: [478, 549, 1316, 534, 1290]
-
+const verdALinu = karfa.map((hlutur) => hlutur.verd * hlutur.magn);
+console.log("[" + verdALinu.join(", ") + "]");
 
 // 3.7 ⭐⭐ Notaðu map til að búa til array af lengdum nafnanna í `nofn`.
 // Á að gefa: [4, 6, 5, 3, 5, 3]
-
+const nafnalengd = nofn.map((nafn) => nafn.length);
+console.log("[" + nafnalengd.join(", ") + "]");
 
 // =====================================================
 // HLUTI 4 — filter
@@ -133,31 +215,24 @@ const karfa = [
 // 4.1 ⭐ Finndu allar tölur í `tolur` sem eru stærri en 15.
 // Á að gefa: [16, 23, 42]
 
-
 // 4.2 ⭐ Finndu allar sléttar tölur í `tolur`. Hint: % 2 === 0
 // Á að gefa: [4, 8, 16, 42]
-
 
 // 4.3 ⭐ Finndu allar kvikmyndir í flokknum "gaman".
 // Á að gefa: 3 kvikmyndir
 
-
 // 4.4 ⭐ Finndu allar kvikmyndir sem komu út eftir árið 2010.
 // Á að gefa: Hrútar, Djúpið, Kona fer í stríð, Lamb
 
-
 // 4.5 ⭐⭐ Finndu öll nöfn sem eru styttri en 5 stafir.
 // Á að gefa: ["Anna", "Jón", "Óli"]
-
 
 // 4.6 ⭐⭐ Finndu kvikmyndir með einkunn 7.4 eða hærri.
 // Prentaðu bara titlana (filter, svo map).
 // Á að gefa: ["Englar alheimsins", "Með allt á hreinu", "Stella í orlofi", "Kona fer í stríð"]
 
-
 // 4.7 ⭐⭐ Finndu vörur í `karfa` sem kosta meira en 300 kr. stykkið.
 // Á að gefa: Brauð, Skyr, Kaffi
-
 
 // =====================================================
 // HLUTI 5 — find
@@ -167,22 +242,17 @@ const karfa = [
 // 5.1 ⭐ Finndu kvikmyndina með id 4.
 // Á að gefa: { id: 4, titill: "Með allt á hreinu", ... }
 
-
 // 5.2 ⭐ Finndu fyrstu töluna í `tolur` sem er stærri en 10.
 // Á að gefa: 15
-
 
 // 5.3 ⭐ Finndu fyrsta nafnið sem byrjar á "K". Hint: nafn.startsWith("K")
 // Á að gefa: Kinga
 
-
 // 5.4 ⭐⭐ Finndu kvikmynd sem heitir "Lamb" og prentaðu árið hennar.
 // Á að gefa: 2021
 
-
 // 5.5 ⭐⭐ Reyndu að finna kvikmynd sem heitir "Titanic". Hvað kemur?
 // Hvað gerist ef þú reynir svo .titill á því? Lestu villuna.
-
 
 // =====================================================
 // HLUTI 6 — reduce
@@ -194,28 +264,22 @@ const karfa = [
 // 6.1 ⭐ Leggðu saman allar tölurnar í `tolur` með reduce.
 // Á að gefa: 108
 
-
 // 6.2 ⭐⭐ Leggðu saman lengd allra kvikmyndanna (í mínútum).
 // Á að gefa: 771
-
 
 // 6.3 ⭐⭐ Reiknaðu heildarverð körfunnar (verd * magn fyrir hverja línu).
 // Á að gefa: 4167
 
-
 // 6.4 ⭐⭐ Teldu hversu margar vörur eru samtals í körfunni (summa af magn).
 // Á að gefa: 14
-
 
 // 6.5 ⭐⭐⭐ Reiknaðu meðaleinkunn kvikmyndanna. Prentaðu með einum aukastaf.
 // Hint: reduce fyrir summuna, deila með .length, svo .toFixed(1)
 // Á að gefa: 7.2
 
-
 // 6.6 ⭐⭐⭐ Finndu lengstu kvikmyndina með reduce.
 // Hint: berðu saman og skilaðu þeirri sem er lengri
 // Á að gefa: Lamb (106 mín)
-
 
 // =====================================================
 // HLUTI 7 — some, every og sort
@@ -224,29 +288,23 @@ const karfa = [
 // 7.1 ⭐ some: Er einhver kvikmynd í flokknum "hrollur"?
 // Á að gefa: true
 
-
 // 7.2 ⭐ every: Eru allar tölurnar í `tolur` jákvæðar (> 0)?
 // Á að gefa: true
 
-
 // 7.3 ⭐⭐ every: Eru allar kvikmyndirnar lengri en 90 mínútur?
 // Á að gefa: false
-
 
 // 7.4 ⭐⭐ sort: Raðaðu `nofn` í stafrófsröð.
 // ATH: sort breytir upprunalega array-inu. Notaðu [...nofn].sort() til að afrita fyrst.
 // Taktu eftir hvar "Óli" lendir. sort raðar eftir stafakóða, svo íslenskir stafir lenda aftast.
 
-
 // 7.5 ⭐⭐ sort: Raðaðu kvikmyndunum eftir ári, elsta fyrst.
 // Hint: [...kvikmyndir].sort((a, b) => a.ar - b.ar)
 // Prentaðu titlana. Á að gefa: Með allt á hreinu, Stella í orlofi, Englar alheimsins, ...
 
-
 // 7.6 ⭐⭐⭐ sort: Raðaðu kvikmyndunum eftir einkunn, hæsta fyrst, og
 // prentaðu bara topp 3 (slice(0, 3)).
 // Á að gefa: Með allt á hreinu, Englar alheimsins, Stella í orlofi
-
 
 // =====================================================
 // HLUTI 8 — Allt saman: keðjur
@@ -256,28 +314,22 @@ const karfa = [
 // 8.1 ⭐⭐ Titlar allra drama-mynda, í hástöfum.
 // Á að gefa: ["HRÚTAR", "DJÚPIÐ", "ENGLAR ALHEIMSINS", "NÓI ALBÍNÓI"]
 
-
 // 8.2 ⭐⭐ Samanlögð lengd allra gamanmynda (filter + reduce).
 // Á að gefa: 284
 
-
 // 8.3 ⭐⭐ Hversu margar kvikmyndir komu út fyrir árið 2000?
 // Á að gefa: 2
-
 
 // 8.4 ⭐⭐⭐ Búðu til strengi fyrir körfuna: "Skyr x4 = 1316 kr."
 // og prentaðu bara þær línur sem kosta meira en 500 kr. samtals.
 // Á að gefa: Brauð x1 = 549 kr., Skyr x4 = 1316 kr., Epli x6 = 534 kr., Kaffi x1 = 1290 kr.
 
-
 // 8.5 ⭐⭐⭐ Skrifaðu function `finnaMynd(titill)` sem tekur inn titil sem parameter
 // og skilar kvikmyndinni, eða textanum "Fannst ekki".
 // Prófaðu: finnaMynd("Djúpið") og finnaMynd("Batman")
 
-
 // 8.6 ⭐⭐⭐ Skrifaðu function `myndirIFlokki(flokkur)` sem skilar array af titlum
 // í þeim flokki. Prófaðu með "drama", "gaman" og "hrollur".
-
 
 // =====================================================
 // HLUTI 9 — JSON
@@ -287,19 +339,15 @@ const karfa = [
 // 9.1 ⭐ Breyttu `karfa` í JSON með JSON.stringify og prentaðu.
 // Prentaðu líka typeof á niðurstöðunni. Á að gefa: string
 
-
 // 9.2 ⭐ Breyttu þessum texta í object og prentaðu nafnið:
 const nemandiJSON = '{"nafn":"Sigga","aldur":24,"aefingar":[1,2,3]}';
 // Á að gefa: Sigga
 
-
 // 9.3 ⭐⭐ Hvað gerist ef þú reynir nemandiJSON.nafn án þess að parse-a? Af hverju?
-
 
 // 9.4 ⭐⭐ Þessi texti er ekki gilt JSON. Lagaðu hann svo JSON.parse virki.
 const biladJSON = "{ nafn: 'Óli', aldur: 31, }";
 // Hint: athugaðu gæsalappirnar og kommuna aftast
-
 
 // =====================================================
 // HLUTI 10 — fetch (keyrir í vafra, eða node 18+)
@@ -312,18 +360,14 @@ const biladJSON = "{ nafn: 'Óli', aldur: 31, }";
 // 10.1 ⭐ Sæktu https://dummyjson.com/recipes/1 og prentaðu nafnið.
 // Á að gefa: Classic Margherita Pizza
 
-
 // 10.2 ⭐⭐ Sæktu https://dummyjson.com/products?limit=10 og prentaðu
 // titla allra varanna með map. Muna: listinn er í gogn.products.
-
 
 // 10.3 ⭐⭐ Sæktu https://dummyjson.com/users?limit=30 og finndu
 // alla notendur sem eru yngri en 30 ára (filter). Hversu margir eru þeir?
 
-
 // 10.4 ⭐⭐⭐ Sæktu https://dummyjson.com/products?limit=30 og reiknaðu
 // meðalverð varanna með reduce.
-
 
 // async function fetchAefingar() {
 //   // skrifaðu 10.1–10.4 hér
